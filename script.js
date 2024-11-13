@@ -13,35 +13,12 @@ uploadForm.addEventListener("submit", async (event) => {
         formData.append("file", file);
 
         try {
-            // const response = await fetch("URL_DA_API_AQUI", {
-            //     method: "POST",
-            //     body: formData
-            // });
-            // const result = await response.json();
-            showPopup(`{
-  "id": 12345,
-  "name": "Mesa de Escritório",
-  "description": "Mesa de escritório moderna com espaço para computador e gavetas.",
-  "dimensions": {
-    "width": 120,
-    "height": 75,
-    "depth": 60
-  },
-  "materials": [
-    "Madeira",
-    "Metal"
-  ],
-  "color": "Cinza",
-  "weight": 23.5,
-  "price": 450.99,
-  "in_stock": true,
-  "tags": [
-    "escritório",
-    "móveis",
-    "moderno"
-  ]
-}
-`);
+            const response = await fetch("http://localhost:8000/upload-file/", {
+                method: "POST",
+                body: formData
+            });
+            const result = await response.json();
+            showPopup(showPopup(JSON.stringify(result)));
         } catch (error) {
             showPopup(`Erro ao enviar o arquivo: ${error.message}`);
         }
