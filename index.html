@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Projeto Finalblz IA</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Envie seu Arquivo</h1>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" name="file" required>
+        <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+        <span id="popupClose" class="popup-close">&times;</span>
+        <p id="popupMessage"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
