@@ -50,7 +50,7 @@ button:hover {
 .popup-content {
   position: relative;
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   text-align: left;
   white-space: pre-wrap;
