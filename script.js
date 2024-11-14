@@ -28,7 +28,7 @@ uploadForm.addEventListener("submit", async (event) => {
             }
             else{
               const x = result.detail;
-              showPopup(`${response.statusText} \n${x}`, 1);
+              showPopup(`Erro\n${x}`, 1);
             }
         } catch (error) {
             showPopup(`Erro ao enviar o arquivo: ${error.message}`);
