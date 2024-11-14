@@ -18,18 +18,37 @@ uploadForm.addEventListener("submit", async (event) => {
                 body: formData
             });
             const result = await response.json();
-            showPopup(showPopup(JSON.stringify(result)));
+
+            if(response.status == 200){
+              x = JSON.parse(result)
+
+              const prettyJson = JSON.stringify(x, null, 4); 
+
+              showPopup(prettyJson, 0);
+            }
+            else{
+              const x = result.detail;
+              showPopup(`${response.statusText} \n${x}`, 1);
+            }
         } catch (error) {
             showPopup(`Erro ao enviar o arquivo: ${error.message}`);
         }
     }
 });
 
-function showPopup(message) {
-    popupMessage.textContent = message;
-    popup.style.display = "flex";
+function showPopup(message, textAlign) {
+  const stylePop = document.getElementById("popupContent");
+
+  if(textAlign === 1) {
+    stylePop.style.textAlign = "center";
+  } 
+  else
+    stylePop.style.textAlign = "left";
+
+  popupMessage.textContent = message;
+  popup.style.display = "flex";
 }
 
 popupClose.addEventListener("click", () => {
-    popup.style.display = "none";
+  popup.style.display = "none";
 });
